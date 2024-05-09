@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 class Main{
@@ -43,6 +45,27 @@ class Main{
         movies.add(new Movie("Dune: Part One", "Denis Villeneuve", 2021));
         movies.add(new Movie("Dune: Part Two", "Denis Villeneuve", 2024));
 
-        System.out.println(movies);
+        try{
+            File file = new File("movies.txt");
+            if(file.createNewFile()){
+                System.out.println("File created: " + file.getName());
+            } else {
+                System.out.println("File already exists.");
+            }
+        } catch (Exception e){
+            System.out.println(e);
+        }
+
+        try{
+            FileWriter writer = new FileWriter("movies.txt");
+            for(Movie movie1 : movies){
+                writer.write(movie1.toString() + "\n");
+            }
+            writer.close();
+        } catch (Exception e){
+            System.out.println(e);
+        }
+
+
     }
 }
