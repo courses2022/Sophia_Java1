@@ -1,27 +1,27 @@
-Movie: The Godfather by Francis Ford Coppola (1972)
-Movie: The Dark Knight by Christopher Nolan (2008)
-Movie: 12 Angry Men by Sidney Lumet (1957)
-Movie: Schindler's List by Steven Spielberg (1993)
-Movie: Pulp Fiction by Quentin Tarantino (1994)
-Movie: The Lord of the Rings: The Return of the King by Peter Jackson (2003)
-Movie: The Good, the Bad and the Ugly by Sergio Leone (1966)
-Movie: The Lord of the Rings: The Fellowship of the Ring by Peter Jackson (2001)
-Movie: The Lord of the Rings: The Two Towers by Peter Jackson (2002)
-Movie: Forrest Gump by Robert Zemeckis (1994)
-Movie: Inception by Christopher Nolan (2010)
-Movie: Fight Club by David Fincher (1999)
-Movie: The Matrix by The Wachowskis (1999)
-Movie: Star Wars: Episode V - The Empire Strikes Back by Irvin Kershner (1980)
-Movie: Star Wars: Episode IV - A New Hope by George Lucas (1977)
-Movie: Star Wars: Episode VI - Return of the Jedi by Richard Marquand (1983)
-Movie: Star Wars: Episode I - The Phantom Menace by George Lucas (1999)
-Movie: Star Wars: Episode III - Revenge of the Sith by George Lucas (2005)
-Movie: Star Wars: Episode II - Attack of the Clones by George Lucas (2002)
-Movie: Star Wars: The Force Awakens by J. J. Abrams (2015)
-Movie: Star Wars: The Last Jedi by Rian Johnson (2017)
-Movie: Star Wars: The Rise of Skywalker by J. J. Abrams (2019)
-Movie: Star Wars: The Force Awakens by J. J. Abrams (2015)
-Movie: Star Wars: The Last Jedi by Rian Johnson (2017)
-Movie: Star Wars: The Rise of Skywalker by J. J. Abrams (2019)
-Movie: Dune: Part One by Denis Villeneuve (2021)
-Movie: Dune: Part Two by Denis Villeneuve (2024)
+The Godfather, Francis Ford Coppola, 1972
+The Dark Knight, Christopher Nolan, 2008
+12 Angry Men, Sidney Lumet, 1957
+Schindler's List, Steven Spielberg, 1993
+Pulp Fiction, Quentin Tarantino, 1994
+The Lord of the Rings: The Return of the King, Peter Jackson, 2003
+The Good, the Bad and the Ugly, Sergio Leone, 1966
+The Lord of the Rings: The Fellowship of the Ring, Peter Jackson, 2001
+The Lord of the Rings: The Two Towers, Peter Jackson, 2002
+Forrest Gump, Robert Zemeckis, 1994
+Inception, Christopher Nolan, 2010
+Fight Club, David Fincher, 1999
+The Matrix, The Wachowskis, 1999
+Star Wars: Episode V - The Empire Strikes Back, Irvin Kershner, 1980
+Star Wars: Episode IV - A New Hope, George Lucas, 1977
+Star Wars: Episode VI - Return of the Jedi, Richard Marquand, 1983
+Star Wars: Episode I - The Phantom Menace, George Lucas, 1999
+Star Wars: Episode III - Revenge of the Sith, George Lucas, 2005
+Star Wars: Episode II - Attack of the Clones, George Lucas, 2002
+Star Wars: The Force Awakens, J. J. Abrams, 2015
+Star Wars: The Last Jedi, Rian Johnson, 2017
+Star Wars: The Rise of Skywalker, J. J. Abrams, 2019
+Star Wars: The Force Awakens, J. J. Abrams, 2015
+Star Wars: The Last Jedi, Rian Johnson, 2017
+Star Wars: The Rise of Skywalker, J. J. Abrams, 2019
+Dune: Part One, Denis Villeneuve, 2021
+Dune: Part Two, Denis Villeneuve, 2024

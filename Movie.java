@@ -43,7 +43,7 @@ public class Movie {
 
     @Override
     public String toString() {
-        return "Movie: " + movieName + " by " + director + " (" + year + ")";
+        return movieName + ", " + director + ", " + year;
     }   
 
     @Override
