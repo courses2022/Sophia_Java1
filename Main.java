@@ -9,7 +9,7 @@ class Main{
         // Create an ArrayList of Movies
         ArrayList<Movie> movies = new ArrayList<>();
         
-        readDataFile(movies);
+        readDataFile(movies, "movies.txt");
 
         System.out.println(movies);
 
@@ -34,9 +34,9 @@ class Main{
     }
 
     // Helper method to from the local file system, store data to Movies list and to deal with error handling
-    private static void readDataFile(ArrayList<Movie> movies) {
+    private static void readDataFile(ArrayList<Movie> movies, String pathName) {
         try{
-            File file = new File("movies.txt");
+            File file = new File(pathName);
             Scanner reader = new Scanner(file);
             while(reader.hasNextLine()){
                 String line = reader.nextLine();
