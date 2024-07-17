@@ -67,8 +67,11 @@ class Main{
     }
     // Displys borrowed movies
     private static void displayBorrowedMovies(ArrayList<Movie> movies) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'displayBorrowedMovies'");
+       for(Movie movie : movies){
+           if(movie.getBorrower() != null){
+               System.out.println(movie);
+           }
+       }
     }
 
     // Displys all movies including those that are currently borrowed
@@ -88,7 +91,7 @@ class Main{
                 movie.setBorrowedDate(null);
             }
         }
-        
+
     }
 
     // This method is used to lend a movie. The person to whom the movie is lended is stored in the Movie object
@@ -107,9 +110,16 @@ class Main{
         }
     }
 
+    // Add a new movie to the movies list
     private static void addMovie(ArrayList<Movie> movies, Scanner scanner) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'addMovie'");
+        System.out.println("Enter the name of the movie: ");
+        String movieName = scanner.nextLine();
+        System.out.println("Enter the name of the director: ");
+        String director = scanner.nextLine();
+        System.out.println("Enter the year of release: ");
+        int year = scanner.nextInt();   
+        scanner.nextLine();
+        movies.add(new Movie(movieName, director, year));
     }
 
     // Helper method to read to the local file system and to deal with error handling
