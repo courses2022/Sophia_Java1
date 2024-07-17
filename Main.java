@@ -78,9 +78,17 @@ class Main{
         }
     }
 
+    // This method is used to return a movie
     private static void returnMovie(ArrayList<Movie> movies, Scanner scanner) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'returnMovie'");
+        System.out.println("Enter the name of the movie: ");
+        String movieName = scanner.nextLine();
+        for(Movie movie : movies){
+            if(movie.getMovieName().equals(movieName)){
+                movie.setBorrower(null);
+                movie.setBorrowedDate(null);
+            }
+        }
+        
     }
 
     // This method is used to lend a movie. The person to whom the movie is lended is stored in the Movie object
