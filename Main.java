@@ -6,7 +6,7 @@ import java.util.Scanner;
 class Main{
 
     public static void main(String[] args){
-        
+        // Create an ArrayList of Movies
         ArrayList<Movie> movies = new ArrayList<>();
         
         readDataFile(movies);
@@ -20,6 +20,7 @@ class Main{
 
     }
 
+    // Helper method to read to the local file system and to deal with error handling
     private static void writeDataFile(ArrayList<Movie> movies) {
         try{
             FileWriter writer = new FileWriter("movies.txt");
@@ -32,6 +33,7 @@ class Main{
         }
     }
 
+    // Helper method to from the local file system, store data to Movies list and to deal with error handling
     private static void readDataFile(ArrayList<Movie> movies) {
         try{
             File file = new File("movies.txt");
