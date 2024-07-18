@@ -96,10 +96,16 @@ class Main{
     private static void returnMovie(ArrayList<Movie> movies, Scanner scanner) {
         System.out.println("Enter the name of the movie: ");
         String movieName = scanner.nextLine();
+        if(movies.stream().noneMatch(movie -> movie.getMovieName().equals(movieName))){
+            System.out.println("Entered movie is not part of collection.");
+            return;
+        }
         for(Movie movie : movies){
             if(movie.getMovieName().equals(movieName)){
                 movie.setBorrower(null);
                 movie.setBorrowedDate(null);
+                System.out.println("Movie returned successfully");
+                return;
             }
         }
 
