@@ -73,16 +73,17 @@ class Main{
     }
     // Displys borrowed movies
     private static void displayBorrowedMovies(ArrayList<Movie> movies) {
-        System.out.println("Movies currently lent to friends: ");
-        if(movies.size() == 0){
+        
+        //Get list of movies which have a borrower
+        ArrayList<Movie> borrowedMovies = movies.stream().filter(movie -> movie.getBorrower() != null).collect(Collectors.toCollection(ArrayList::new));
+        if(borrowedMovies.size() == 0){
             System.out.println("There are no movies currently lent to friends. ");
             return;
         }
-       for(Movie movie : movies){
-           if(movie.getBorrower() != null){
-               System.out.println(movie);
-           }
-       }
+        System.out.println("Movies currently lent to friends: ");
+        for(Movie movie : borrowedMovies){
+            System.out.println(movie);
+        }
     }
 
     // Displys all movies including those that are currently borrowed
