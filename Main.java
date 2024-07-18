@@ -24,7 +24,9 @@ class Main{
         // Handle user input
         while(choice != 6){
         // Display main menu
-        System.out.println("Movies DB");
+        System.out.println("\n=========================");
+        System.out.println("       Movies DB");
+        System.out.println("=========================\n");
         System.out.println("1. Add a movie");
         System.out.println("2. Lend a movie");
         System.out.println("3. Return a movie");
@@ -126,8 +128,11 @@ class Main{
             if(movie.getMovieName().equals(movieName)){
                 movie.setBorrower(borrower);
                 movie.setBorrowedDate(borrowedDate);
+                System.out.println("Movie lent out successfully");
             }
         }
+
+        
     }
 
     // Add a new movie to the movies list
