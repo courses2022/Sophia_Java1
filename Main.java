@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 class Main{
 
@@ -26,13 +27,25 @@ class Main{
         System.out.println("6. Exit");
         System.out.println("Enter your choice: ");
 
-        // Read user input
+        // Setup scanner for user input
         Scanner scanner = new Scanner(System.in);
-        int choice = scanner.nextInt();
-        scanner.nextLine();
-
+        int choice = 0;
+        
         // Handle user input
         while(choice != 6){
+        // Display main menu
+        System.out.println("Movies DB");
+        System.out.println("1. Add a movie");
+        System.out.println("2. Lend a movie");
+        System.out.println("3. Return a movie");
+        System.out.println("4. Display all movies");
+        System.out.println("5. Display borrowed movies");
+        System.out.println("6. Exit");
+        System.out.println("Enter your choice: ");
+
+        // Read user input
+        choice = scanner.nextInt();
+        scanner.nextLine();
             switch(choice){
                 case 1:
                     addMovie(movies, scanner);
@@ -52,13 +65,11 @@ class Main{
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
-            System.out.println("Enter your choice: ");
-            choice = scanner.nextInt();
-            scanner.nextLine();
+
         }
 
         //System.out.println(movies);
-
+        // Save updated data to the file system
         writeDataFile(movies);
 
         
@@ -99,6 +110,15 @@ class Main{
     private static void lendMovie(ArrayList<Movie> movies, Scanner scanner) {
         System.out.println("Enter the name of the movie: ");
         String movieName = scanner.nextLine();
+        ArrayList<Movie> matchingMovies = movies.stream().filter(movie -> movie.getMovieName().equals(movieName)).collect(Collectors.toCollection(ArrayList::new));
+        if(matchingMovies.size() == 0){
+            System.out.println("No movies found");
+            return;
+        }
+        System.out.println("The following movies match your search: ");
+        for(Movie movie : matchingMovies){
+            System.out.println(movie);
+        }
         System.out.println("Enter the name of the person who borrowed the movie: ");
         String borrower = scanner.nextLine();
         System.out.println("Enter the date on which the movie was borrowed: (dd/mm/yyyy) (T=Today) ");
