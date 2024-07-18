@@ -41,6 +41,15 @@ public class Movie {
         this.borrowedDate = borrowedDate;
     }
 
+    public String toCSV() {
+        if(borrower == null) {
+            return movieName + ", " + director + ", " + year;
+        }else{
+            return movieName + ", " + director + ", " + year + ", " + borrower + ", " + borrowedDate;
+        }
+    }   
+
+    // Override toString method
     @Override
     public String toString() {
         if(borrower == null) {
@@ -49,7 +58,8 @@ public class Movie {
             return movieName + ", " + director + ", " + year + ", (Borrower: " + borrower + ", " + borrowedDate+")";
         }
     }   
-
+    
+    // Override equals method
     @Override
     public boolean equals(Object obj) {
         if (obj == this) {

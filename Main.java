@@ -125,6 +125,15 @@ class Main{
             System.out.println("Enter the full movie name or add to the collection");
             return;
         }
+
+        // Check if the movie is already lent out to someone
+        if(matchingMovies.get(0).getBorrower() != null){
+            System.out.println("Movie already lent out");
+            return;
+                    
+        }
+
+        //Display the full details of the movie to be lent out
         System.out.println("The following movies match your search: ");
         for(Movie movie : matchingMovies){
             System.out.println(movie);
@@ -135,22 +144,20 @@ class Main{
         String borrower = scanner.nextLine();
         System.out.println("Enter the date on which the movie was borrowed: (dd/mm/yyyy) (T=Today) ");
         String borrowedDate = scanner.nextLine();
-        if(borrowedDate.equals("T")){
+        if(borrowedDate.equalsIgnoreCase("T")){
             borrowedDate = java.time.LocalDate.now().toString();
         }
 
+
         // Update movie borrowed details
-        for(Movie movie : matchingMovies){
-            if(movie.getBorrower() == null){
+        for(Movie movie : movies){
+            if(movie.getMovieName().equals(matchingMovies.get(0).getMovieName()) && movie.getBorrower() == null){
                 movie.setBorrower(borrower);
                 movie.setBorrowedDate(borrowedDate);
                 System.out.println("Movie lent out successfully");
-            }else{
-                System.out.println(movie.getMovieName() + " already lent out");
             }
         }
-
-        
+     
     }
     
 
@@ -191,7 +198,7 @@ class Main{
         try{
             FileWriter writer = new FileWriter("movies.txt");
             for(Movie movie : movies){
-                writer.write(movie.toString() + "\n");
+                writer.write(movie.toCSV() + "\n");
             }
             writer.close();
         } catch (Exception e){
