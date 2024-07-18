@@ -138,6 +138,11 @@ class Main{
     private static void addMovie(ArrayList<Movie> movies, Scanner scanner) {
         System.out.println("Enter the name of the movie: ");
         String movieName = scanner.nextLine();
+        // Check if movie is already in the database
+        if(movies.stream().anyMatch(movie -> movie.getMovieName().equals(movieName))){
+            System.out.println("Movie already exists");
+            return;
+        }
         System.out.println("Enter the name of the director: ");
         String director = scanner.nextLine();
         System.out.println("Enter the year of release: ");
