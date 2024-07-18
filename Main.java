@@ -107,7 +107,7 @@ class Main{
         for(Movie movie : movies){
             if(movie.getMovieName().equals(movieName)){
                 if(movie.getBorrower() == null){
-                    System.out.println("Movie is not borrowed.");
+                    System.out.println("Movie is currently not borrowed by anyone.");
                     return;
                 }
                 movie.setBorrower(null);
