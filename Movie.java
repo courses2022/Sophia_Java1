@@ -13,6 +13,14 @@ public class Movie {
         this.year = year;
     }
 
+    public Movie(String movieName, String director, int year, String borrower, String borrowedDate) {
+        this.movieName = movieName;
+        this.director = director;
+        this.year = year;
+        this.borrower = borrower;
+        this.borrowedDate = borrowedDate;
+    }
+
     public String getMovieName() {
         return movieName;
     }
