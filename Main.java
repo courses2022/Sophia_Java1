@@ -17,16 +17,6 @@ class Main{
         // Read data from the local file system and store data to Movies list
         readDataFile(movies, "movies.txt");
 
-        // Display main menu
-        System.out.println("Movies DB");
-        System.out.println("1. Add a movie");
-        System.out.println("2. Lend a movie");
-        System.out.println("3. Return a movie");
-        System.out.println("4. Display all movies");
-        System.out.println("5. Display borrowed movies");
-        System.out.println("6. Exit");
-        System.out.println("Enter your choice: ");
-
         // Setup scanner for user input
         Scanner scanner = new Scanner(System.in);
         int choice = 0;
