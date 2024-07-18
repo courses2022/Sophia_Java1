@@ -67,6 +67,7 @@ class Main{
     }
     // Displys borrowed movies
     private static void displayBorrowedMovies(ArrayList<Movie> movies) {
+        System.out.println("Movies currently lent to friends: ");
        for(Movie movie : movies){
            if(movie.getBorrower() != null){
                System.out.println(movie);
@@ -100,8 +101,11 @@ class Main{
         String movieName = scanner.nextLine();
         System.out.println("Enter the name of the person who borrowed the movie: ");
         String borrower = scanner.nextLine();
-        System.out.println("Enter the date on which the movie was borrowed: ");
+        System.out.println("Enter the date on which the movie was borrowed: (dd/mm/yyyy) (T=Today) ");
         String borrowedDate = scanner.nextLine();
+        if(borrowedDate.equals("T")){
+            borrowedDate = java.time.LocalDate.now().toString();
+        }
         for(Movie movie : movies){
             if(movie.getMovieName().equals(movieName)){
                 movie.setBorrower(borrower);
