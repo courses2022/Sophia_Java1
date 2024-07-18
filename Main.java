@@ -94,8 +94,11 @@ class Main{
 
     // This method is used to return a movie
     private static void returnMovie(ArrayList<Movie> movies, Scanner scanner) {
+        // Get the name of the movie to be returned
         System.out.println("Enter the name of the movie: ");
         String movieName = scanner.nextLine();
+
+        // Check if movie is in the collection
         if(movies.stream().noneMatch(movie -> movie.getMovieName().equals(movieName))){
             System.out.println("Entered movie is not part of collection.");
             return;
@@ -115,9 +118,7 @@ class Main{
     private static void lendMovie(ArrayList<Movie> movies, Scanner scanner) {
 
         // Get the movie name and check if it is in the DB
-        System.out.println("Enter the name of the movie: ");
-        String movieName = scanner.nextLine();
-        ArrayList<Movie> matchingMovies = movies.stream().filter(movie -> movie.getMovieName().equals(movieName)).collect(Collectors.toCollection(ArrayList::new));
+        ArrayList<Movie> matchingMovies = getMatchingMovies(movies, scanner);
         if(matchingMovies.size() == 0){
             System.out.println("No movies found");
             return;
@@ -137,15 +138,22 @@ class Main{
         }
 
         // Update movie borrowed details
-        for(Movie movie : movies){
-            if(movie.getMovieName().equals(movieName)){
+        for(Movie movie : matchingMovies){
+            if(movie.getMovieName().equals(movieName) && movie.getBorrower() == null){
                 movie.setBorrower(borrower);
                 movie.setBorrowedDate(borrowedDate);
                 System.out.println("Movie lent out successfully");
+            }else{
+                System.out.println(movie.getMovieName() + " already lent out");
             }
         }
 
         
+    }
+    private static ArrayList<Movie> getMatchingMovies(ArrayList<Movie> movies, Scanner scanner) {
+        System.out.println("Enter the name of the movie: ");
+        String movieName = scanner.nextLine();
+        return movies.stream().filter(movie -> movie.getMovieName().equals(movieName)).collect(Collectors.toCollection(ArrayList::new));
     }
 
     // Add a new movie to the movies list
