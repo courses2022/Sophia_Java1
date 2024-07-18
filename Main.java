@@ -217,9 +217,13 @@ class Main{
                 String movieName = parts[0];
                 String director = parts[1];
                 int year = Integer.parseInt(parts[2]);
-                String borrower = parts[3];
-                String borrowedDate = parts[4];
-                movies.add(new Movie(movieName, director, year, borrower, borrowedDate));
+                if(parts.length > 3){
+                    String borrower = parts[3];
+                    String borrowedDate = parts[4];
+                    movies.add(new Movie(movieName, director, year, borrower, borrowedDate));
+                }else{
+                    movies.add(new Movie(movieName, director, year));
+                }                
             }
             reader.close();
         }catch(Exception e){
