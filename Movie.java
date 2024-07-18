@@ -43,7 +43,11 @@ public class Movie {
 
     @Override
     public String toString() {
-        return movieName + ", " + director + ", " + year;
+        if(borrower == null) {
+            return movieName + ", " + director + ", " + year;
+        }else{
+            return movieName + ", " + director + ", " + year + ", (Borrower: " + borrower + ", " + borrowedDate+")";
+        }
     }   
 
     @Override

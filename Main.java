@@ -54,6 +54,9 @@ class Main{
                 case 5:
                     displayBorrowedMovies(movies);
                     break;
+                case 6:
+                    System.out.println("END");
+                    break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
@@ -71,6 +74,10 @@ class Main{
     // Displys borrowed movies
     private static void displayBorrowedMovies(ArrayList<Movie> movies) {
         System.out.println("Movies currently lent to friends: ");
+        if(movies.size() == 0){
+            System.out.println("There are no movies currently lent to friends. ");
+            return;
+        }
        for(Movie movie : movies){
            if(movie.getBorrower() != null){
                System.out.println(movie);
