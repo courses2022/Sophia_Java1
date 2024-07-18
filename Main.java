@@ -98,6 +98,8 @@ class Main{
 
     // This method is used to lend a movie. The person to whom the movie is lended is stored in the Movie object
     private static void lendMovie(ArrayList<Movie> movies, Scanner scanner) {
+
+        // Get the movie name and check if it is in the DB
         System.out.println("Enter the name of the movie: ");
         String movieName = scanner.nextLine();
         ArrayList<Movie> matchingMovies = movies.stream().filter(movie -> movie.getMovieName().equals(movieName)).collect(Collectors.toCollection(ArrayList::new));
@@ -109,6 +111,8 @@ class Main{
         for(Movie movie : matchingMovies){
             System.out.println(movie);
         }
+
+        //Enter Borrower details
         System.out.println("Enter the name of the person who borrowed the movie: ");
         String borrower = scanner.nextLine();
         System.out.println("Enter the date on which the movie was borrowed: (dd/mm/yyyy) (T=Today) ");
@@ -116,6 +120,8 @@ class Main{
         if(borrowedDate.equals("T")){
             borrowedDate = java.time.LocalDate.now().toString();
         }
+
+        // Update movie borrowed details
         for(Movie movie : movies){
             if(movie.getMovieName().equals(movieName)){
                 movie.setBorrower(borrower);
