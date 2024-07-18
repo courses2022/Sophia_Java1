@@ -120,7 +120,8 @@ class Main{
         // Get the movie name and check if it is in the DB
         ArrayList<Movie> matchingMovies = getMatchingMovies(movies, scanner);
         if(matchingMovies.size() == 0){
-            System.out.println("No movies found");
+            System.out.println("No movies found.");
+            System.out.println("Enter the full movie name or add to the collection");
             return;
         }
         System.out.println("The following movies match your search: ");
@@ -139,7 +140,7 @@ class Main{
 
         // Update movie borrowed details
         for(Movie movie : matchingMovies){
-            if(movie.getMovieName().equals(movieName) && movie.getBorrower() == null){
+            if(movie.getBorrower() == null){
                 movie.setBorrower(borrower);
                 movie.setBorrowedDate(borrowedDate);
                 System.out.println("Movie lent out successfully");
@@ -150,27 +151,38 @@ class Main{
 
         
     }
-    private static ArrayList<Movie> getMatchingMovies(ArrayList<Movie> movies, Scanner scanner) {
-        System.out.println("Enter the name of the movie: ");
-        String movieName = scanner.nextLine();
-        return movies.stream().filter(movie -> movie.getMovieName().equals(movieName)).collect(Collectors.toCollection(ArrayList::new));
-    }
+    
 
     // Add a new movie to the movies list
     private static void addMovie(ArrayList<Movie> movies, Scanner scanner) {
+
+        // Get the movie name and check if it is in the DB
         System.out.println("Enter the name of the movie: ");
         String movieName = scanner.nextLine();
-        // Check if movie is already in the database
-        if(movies.stream().anyMatch(movie -> movie.getMovieName().equals(movieName))){
+        ArrayList<Movie> matchingMovies = movies.stream().filter(movie -> movie.getMovieName().equals(movieName)).collect(Collectors.toCollection(ArrayList::new));
+        
+
+        //Check if the named movie already exists
+        if(matchingMovies.size() > 0){
             System.out.println("Movie already exists");
             return;
         }
+
+        // Prompt user for director and year of release
         System.out.println("Enter the name of the director: ");
         String director = scanner.nextLine();
         System.out.println("Enter the year of release: ");
         int year = scanner.nextInt();   
         scanner.nextLine();
         movies.add(new Movie(movieName, director, year));
+    }
+
+
+    // Helper method to get movie from the movies list
+    private static ArrayList<Movie> getMatchingMovies(ArrayList<Movie> movies, Scanner scanner) {
+        System.out.println("Enter the name of the movie: ");
+        String movieName = scanner.nextLine();
+        return movies.stream().filter(movie -> movie.getMovieName().equals(movieName)).collect(Collectors.toCollection(ArrayList::new));
     }
 
     // Helper method to read to the local file system and to deal with error handling
