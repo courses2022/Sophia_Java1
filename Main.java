@@ -106,6 +106,10 @@ class Main{
         }
         for(Movie movie : movies){
             if(movie.getMovieName().equals(movieName)){
+                if(movie.getBorrower() == null){
+                    System.out.println("Movie is not borrowed.");
+                    return;
+                }
                 movie.setBorrower(null);
                 movie.setBorrowedDate(null);
                 System.out.println("Movie returned successfully");
